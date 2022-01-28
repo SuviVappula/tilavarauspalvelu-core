@@ -41,7 +41,7 @@ RUN if [ "x$BUILD_MODE" = "xlocal" ]; \
         rm -rf /etc/pki/entitlement 
         # && \
         #rm -rf /etc/rhsm
-    fi;
+    fi
 
 # Enable the repos you need
 #RUN subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
