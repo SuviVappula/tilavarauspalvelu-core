@@ -6,9 +6,9 @@ USER root
 
 RUN rm /etc/rhsm-host
 
-ARG LOCAL_REDHAT_USERNAME
-ARG LOCAL_REDHAT_PASSWORD
-ARG BUILD_MODE
+#ARG LOCAL_REDHAT_USERNAME
+#ARG LOCAL_REDHAT_PASSWORD
+#ARG BUILD_MODE
 
 # Creating dummy directories
 #RUN mkdir ./etc-pki-entitlement && mkdir ./rhsm-conf && mkdir ./rhsm-ca
@@ -20,10 +20,11 @@ COPY ./etc-pki-entitlement /etc/pki/entitlement
 #COPY *rhsm-conf /etc/rhsm
 #COPY *rhsm-ca /etc/rhsm/ca
 
-RUN if [ "x$BUILD_MODE" = "xlocal" ]; \
-    then \
-        subscription-manager register --username $LOCAL_REDHAT_USERNAME --password $LOCAL_REDHAT_PASSWORD --auto-attach; \
-    else \
+RUN \
+# if [ "x$BUILD_MODE" = "xlocal" ]; \
+#   then \
+#        subscription-manager register --username $LOCAL_REDHAT_USERNAME --password $LOCAL_REDHAT_PASSWORD --auto-attach; \
+#    else \
         #subscription-manager register --auto-attach; \
         # Delete /etc/rhsm-host to use entitlements from the build container
         #rm /etc/rhsm-host; \
@@ -41,7 +42,7 @@ RUN if [ "x$BUILD_MODE" = "xlocal" ]; \
         rm -rf /etc/pki/entitlement 
         # && \
         #rm -rf /etc/rhsm
-    ; fi
+   # ; fi
 
 # Enable the repos you need
 #RUN subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
