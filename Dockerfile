@@ -35,7 +35,7 @@ RUN \
         subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms && \
         dnf -y update && \
         # If needed, add additional packets
-        dnf -y install https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+        dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
         # Install what you need
         dnf -y install gdal && \
         # Remove entitlements and Subscription Manager configs
