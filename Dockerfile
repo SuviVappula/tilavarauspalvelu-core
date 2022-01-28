@@ -34,7 +34,7 @@ RUN if [ "x$BUILD_MODE" = "xlocal" ]; \
         subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms && \
         yum -y update && \
         # If needed, add additional packets
-        rpm -Uvh <https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm> && \
+        rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
         # Install what you need
         yum -y install gdal && \
         # Remove entitlements and Subscription Manager configs
